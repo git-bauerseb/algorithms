@@ -4,6 +4,10 @@ This repository contains (or will contain) a collection of algorithms and data s
 
 Furthermore, they are used to understand certain topics better and for allowing a quicker implementation of an idea. Currently, they are not heavily tested, so they may contain bugs or give wrong results.
 
+## Source Directory
+
+- *ita_chX*: Implementation for chapter *X* from *Introduction to Algorithms*
+
 ## Sources
 
 The main sources for the algorithms are the following books/references:
