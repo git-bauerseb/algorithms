@@ -5,6 +5,10 @@
 #include <initializer_list>
 #include <memory>
 #include <vector>
+#include <complex>
+#include <cmath>
+
+#include "fft.h"
 
 
 class Polynomial {
@@ -34,9 +38,28 @@ class Polynomial {
         */
         int evaluate_horner(int x0) const;
 
+        /*
+            Give the unique polynomial that satisfies the conditions of the point-value pairs.
+            Uses Lagrange's formula for interpolation.
+        */
+        static Polynomial n_point_interpolation(std::vector<std::pair<int,int>> points);
+
         static Polynomial add(const Polynomial& a, const Polynomial& b);
 
+        /*
+            Uses simple looping of coefficients to multiply the two polynomials.
+            Runtime is Theta(n^2).
+        */
         static Polynomial simple_multiply(const Polynomial& a, const Polynomial& b);
+
+        /*
+            Uses Discrete Fouriert Transform to multiply two polynomials.
+            Because FFT is used for computation of DFT, the runtime (theoretically) is Theta(n * log n).
+
+            Practically, because of the recursive/non-optimized implementation it is slower and numerically
+            unstable.
+        */
+        static Polynomial fft_multiply(const Polynomial& a, const Polynomial& b);
 
     private:
         int m_size;

@@ -1,5 +1,5 @@
 CXX       := g++
-CXX_FLAGS := -ggdb -g
+CXX_FLAGS := -ggdb -g -Wno-conversion -Wno-narrowing
 
 BIN     := bin
 SRC     := src
